@@ -91,31 +91,31 @@ GLS 是除 RecursiveLS、RollingWLS 和 RollingOLS 之外的其他回归类的�
 
 这对于所有回归类模型常见的和详细的描述
 
-pinv_wexog : array
+ pinv_wexog : array 
     白色设计矩阵 `p` x `n` Moore-Penrose 的伪逆，约等于 :math:`\left(X^{T}\Sigma^{-1}X\right)^{-1}X^{T}\Psi`, 其中
     :math:`\Psi` 可以被定义为 :math:`\Psi\Psi^{T}=\Sigma^{-1}`.
-cholsimgainv : array
+ cholsimgainv : array 
     满足 :math:`\Psi\Psi^{T}=\Sigma^{-1}` 的 `n` x `n` 的上三角矩阵 :math:`\Psi^{T}` 
-df_model : float
+ df_model : float 
     模型的自由度。 等于 `p`-1，其中 `p` 是回归数。 请注意，此处截距不算作一个自由度。
-df_resid : float
+ df_resid : float 
     残差的自由度。 这等于 `n - p` ，其中 `n` 是观测数，而 `p` 是参数的数量。 请注意，此处截距被视为一个自由度。
-llf : float
+ llf : float 
     拟合模型的似然函数的值.
-nobs : float
+ nobs : float 
     观测数 `n`
-normalized_cov_params : array
+ normalized_cov_params : array 
     一个等于 :math:`(X^{T}\Sigma^{-1}X)^{-1}` 的 `p` x `p` 数组.
-sigma : array
+ sigma : array 
     误差项 :math:`\mu\sim N\left(0,\Sigma\right)` 的 `n` x `n` 协方差矩阵。
-wexog : array
+ wexog : array 
     白色设计矩阵 :math:`\Psi^{T}X`.
-wendog : array
+ wendog : array 
     白色响应变量 :math:`\Psi^{T}Y`.
 
 模块参考
 ----------------
-
+* statsmodels.regression.linear_model
 .. module:: statsmodels.regression.linear_model
    :synopsis: Least squares linear models
 
@@ -161,6 +161,7 @@ wendog : array
    :toctree: generated/
 
    RollingWLS
+
    RollingOLS
 
 .. module:: statsmodels.regression.process_regression
@@ -193,6 +194,33 @@ wendog : array
 拟合线性回归模型将返回结果类。与其他线性模型的结果类相比，OLS具有特定的结果类
 和一些其他方法。
 
+
+*statsmodels.regression.linear_model
+
+   * RegressionResults
+   * OLSResults
+   * PredictionResults
+
+* statsmodels.base.elastic_net
+
+   * RegularizedResults
+
+* statsmodels.regression.quantile_regression
+   
+   * QuantRegResults
+
+* statsmodels.regression.recursive_ls
+
+   * RecursiveLSResults
+
+* statsmodels.regression.rolling
+
+   * RollingRegressionResults
+
+* statsmodels.regression.dimred
+
+   * DimReductionResults
+   
 .. currentmodule:: statsmodels.regression.linear_model
 
 .. autosummary::

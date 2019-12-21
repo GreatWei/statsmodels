@@ -1,24 +1,22 @@
 .. _endog_exog:
 
-``endog``, ``exog``, what's that?
+``endog``, ``exog`` 是什么？
 =================================
 
-statsmodels is using ``endog`` and ``exog`` as names for the data, the
-observed variables that are used in an estimation problem. Other names that
-are often used in different statistical packages or text books are, for
-example,
+statsmodels 是使用 ``endog`` 和 ``exog`` 作为数据的名称, 在估计问题中使用的观测变量，在不同的统计工具包或书本中，经常使用其他名称，例如：
 
 ===================== ======================
-endog                 exog
+endog内生变量          exog外生变量
 ===================== ======================
-y                     x
-y variable            x variable
-left hand side (LHS)  right hand side (RHS)
-dependent variable    independent variable
-regressand            regressors
-outcome               design
-response variable     explanatory variable
+y                      x
+y 变量                 x 变量
+左手边 (LHS)           右手边 (RHS)
+因变量                 自变量
+regressand             regressors
+输出                   设计矩阵
+响应变量                解释变量
 ===================== ======================
+
 
 The usage is quite often domain and model specific; however, we have chosen
 to use `endog` and `exog` almost exclusively. A mnemonic hint to keep the two

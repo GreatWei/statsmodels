@@ -36,7 +36,7 @@ PyPI (pip)
 
 点击 `这个链接是我们的 PyPI 页面 <https://pypi.org/project/statsmodels/>`__ 直接下载源代码
 
-对于 Windows 用户, 此处会提供一些非官方的最新文件 `此处 <https://www.lfd.uci.edu/~gohlke/pythonlibs/#statsmodels>`__.
+对于 Windows 用户,  `此处 <https://www.lfd.uci.edu/~gohlke/pythonlibs/#statsmodels>`__ 会提供一些非官方的最新文件
 
 获取源
 --------------------
@@ -81,7 +81,7 @@ Cython. 您可以按照以下说明获取 Windows 的 C 编译器设置。
     python setup.py build
     python setup.py install
 
-statsmodels 也可以在 `develop` 模型下安装，该模式将 statsmodels 直接安装到当前的 python 环境中。这样做的好处是，当 python 编译器重新启动时，将立即重新编译已编译的模块，
+ statsmodels 也可以在 `develop` 模型下安装，该模式将 statsmodels 直接安装到当前的 python 环境中。这样做的好处是，当 python 编译器重新启动时，将立即重新编译已编译的模块，
  而无需重新安装 statsmodels 模块。
 
 .. code-block:: bash

@@ -58,10 +58,10 @@
     df = df.dropna()
     df[-5:]
 
-Substantive motivation and model
+实质动机和模型
 --------------------------------
 
-我们想知道 86 French departments 的识字率是否与 1820s 皇家彩票的人均赌注相关 . 我们需要控制每个部门的财富水平,
+我们想知道86年法国政府的识字率是否与 1820s 皇家彩票的人均赌注相关. 我们需要控制每个政府的财富水平,
 还希望在回归方程的右侧包括一系列虚拟变量，以控制由于区域效应而导致的未观测到的差异性。 使用普通最小二乘法 (OLS)
 来估算模型
 
@@ -135,8 +135,7 @@ OLS 模型系数估计值照常计算：
 诊断和规范检验
 -----------------------------------
 
-``statsmodels`` 可以进行一系列有用的 `regression diagnostics
-and specification tests
+``statsmodels`` 可以进行一系列有用的 `诊断和规范检验
 <stats.html#residual-diagnostics-and-specification-tests>`_.  例如,
 对彩虹进行线性检验 (零假设是将关系正确建模为线性):
 
@@ -144,8 +143,8 @@ and specification tests
 
     sm.stats.linear_rainbow(res)
 
-诚然，上面产生的输出不是很冗长，但是通过阅读 `docstring <generated/statsmodels.stats.diagnostic.linear_rainbow.html>`_
-我们知道 (also, ``print(sm.stats.linear_rainbow.__doc__)``) ，第一个数字是 F-统计量，第二个数字是 p-value.
+诚然，上面产生的输出不是很冗长，但是我们可以通过阅读 `docstring <generated/statsmodels.stats.diagnostic.linear_rainbow.html>`_
+知道 (也可以, ``print(sm.stats.linear_rainbow.__doc__)``) ，第一个数字是 F-统计量，第二个数字是 p-value.
 
 ``statsmodels`` 还提供了绘图函数。 例如, 我们可以通过以下方式绘制一组回归变量的回归图：
 
@@ -169,4 +168,4 @@ and specification tests
 ----
 
 恭喜你! 你已准备好了进入
-`Table of Contents <index.html#table-of-contents>`_ 的其他主题
+`目录表 <index.html#table-of-contents>`_ 的其他主题
