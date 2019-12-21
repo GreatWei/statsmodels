@@ -1,4 +1,4 @@
-Developer Page
+开发者页面
 ==============
 
 This page explains how you can contribute to the development of `statsmodels`
@@ -8,17 +8,17 @@ by submitting patches, statistical tests, new models, or examples.
 <https://github.com/statsmodels/statsmodels>`_ using the `Git
 <https://git-scm.com/>`_ version control system.
 
-Submitting a Bug Report
+提交 Bug 报告
 -----------------------
 
 - Include a short, self-contained code snippet that reproduces the problem
 - Specify the statsmodels version used. You can do this with ``sm.version.full_version``
 - If the issue looks to involve other dependencies, also include the output of ``sm.show_versions()``
 
-Making Changes to the Code
+修改代码
 --------------------------
 
-First, review the :ref:`git_notes` section for an intro to the git version
+First, review the :ref:git_notes section for an intro to the git version
 control system.
 
 For a pull request to be accepted, you must meet the below requirements. This
@@ -57,7 +57,7 @@ greatly helps the job of maintaining and releasing the software a shared effort.
   ``docs/source/release/versionX.X.rst`` file that has the version number of the
   next release and add your changes to the appropriate section.
 
-How to Submit a Pull Request
+如何提交 Pull 请求
 ----------------------------
 
 So you want to submit a patch to `statsmodels` but are not too familiar with
@@ -77,19 +77,19 @@ If your pull request becomes out of date, rebase your pull request on the
 latest version in the central repository.
 
 
-Mailing List
+邮件列表
 ------------
 
 Conversations about development take place on the
 `statsmodels mailing list <https://groups.google.com/forum/?hl=en#!forum/pystatsmodels>`__.
 
-License
+许可证
 -------
 
 statsmodels is released under
 the `Modified (3-clause) BSD license <https://opensource.org/licenses/BSD-3-Clause>`_.
 
-Contents
+目录
 --------
 
 .. toctree::

@@ -4,51 +4,30 @@
 .. currentmodule:: statsmodels
 
 *****************
-About statsmodels
+关于statsmodels
 *****************
 
-Background
+背景
 ----------
 
-The ``models`` module of ``scipy.stats`` was originally written by Jonathan
-Taylor. For some time it was part of scipy but was later removed. During
-the Google Summer of Code 2009, ``statsmodels`` was corrected, tested,
-improved and released as a new package. Since then, the statsmodels
-development team has continued to add new models, plotting tools, and
-statistical methods.
+模块最初由乔纳森·泰勒（Jonathan Taylor）编写的 scipy.stats。一直以来，它是 scipy 的一部分，但后来被删除了。在 Google Summer of Code 2009 期间，我们对其 statsmodels 进行了更正、测试、改进和发布，并将其作为新程序包发布。从那时起，statsmodels 开发团队就继续添加新模型，绘图工具和统计方法。
 
-Testing
+测试
 -------
 
-Most results have been verified with at least one other statistical package:
-R, Stata or SAS. The guiding principle for the initial rewrite and for
-continued development is that all numbers have to be verified. Some
-statistical methods are tested with Monte Carlo studies. While we strive to
-follow this test-driven approach, there is no guarantee that the code is
-bug-free and always works. Some auxiliary function are still insufficiently
-tested, some edge cases might not be correctly taken into account, and the
-possibility of numerical problems is inherent to many of the statistical
-models. We especially appreciate any help and reports for these kind of
-problems so we can keep improving the existing models.
+大多数结果已通过至少一个其他统计软件包：R，Stata 或 SAS 进行了验证。初始重写和持续开发的指导原则是必须验证所有数字。一些统计方法已通过蒙特卡洛研究进行了检验。尽管我们努力遵循这种测试驱动的方法，但不能保证代码没有错误，并且始终有效。
+某些辅助功能仍未充分测试，某些边缘情况可能未正确考虑，并且许多统计模型都固有有数字问题的可能性。我们特别感谢您提供的有关此类问题的帮助和报告，以便我们可以不断改进现有模型。
 
-Code Stability
+
+Code 稳定性
 ^^^^^^^^^^^^^^
 
-The existing models are mostly settled in their user interface and we do not
-expect many large changes going forward. For the existing code, although
-there is no guarantee yet on API stability, we have long deprecation periods
-in all but very special cases, and we try to keep changes that require
-adjustments by existing users to a minimal level. For newer models we might
-adjust the user interface as we gain more experience and obtain feedback.
-These changes will always be noted in our release notes available in the
-documentation.
+现有模型大部分都放置在其用户界面中，并且我们预计以后不会有很多重大变化。对于现有代码，尽管尚不能保证API的稳定性，但在非常特殊的情况下，除所有特殊情况外，我们都有较长的弃用期，并且我们尝试将需要现有用户进行调整的更改保持在最低水平。对于较新的模型，我们可能会在获得更多经验并获得反馈时调整用户界面。这些更改将始终在文档中的发行说明中记录。
 
-Reporting Bugs
+
+Bugs 反馈
 ^^^^^^^^^^^^^^
-If you encounter a bug or an unexpected behavior, please report it on
-`the issue tracker <https://github.com/statsmodels/statsmodels/issues>`_.
-Use the ``show_versions`` command to list the installed versions of
-statsmodels and its dependencies.
+如果你发现了 bug 或出现报错，请把它报告到 `问题追踪 <https://github.com/statsmodels/statsmodels/issues>`_ 。使用 ``show_versions`` 命令查看已安装的 statsmodels 版本及其依赖项。
 
 .. autosummary::
    :toctree: generated/
@@ -56,35 +35,30 @@ statsmodels and its dependencies.
    ~statsmodels.tools.print_version.show_versions
 
 
-Financial Support
+经济支持
 -----------------
 
-We are grateful for the financial support that we obtained for the
-development of statsmodels:
+我们感谢为 statsmodels 提供的经济支持：
 
 * Google `www.google.com <https://www.google.com/>`_ : Google Summer of Code
   (GSOC) 2009-2017.
-* AQR `www.aqr.com <https://www.aqr.com/>`_ : financial sponsor for the work on
-  Vector Autoregressive Models (VAR) by Wes McKinney
+* AQR `www.aqr.com <https://www.aqr.com/>`_ : 从事矢量自回归模型（VAR）工作的财务赞助商
 
-We would also like to thank our hosting providers, `github
-<https://github.com/>`_ for the public code repository, `github.io
-<https://www.statsmodels.org/stable/index.html>`_ for hosting our documentation
+我们还要感谢托管服务提供商, `github
+<https://github.com/>`_ 提供了公共代码存储库, `github.io
+<https://www.statsmodels.org/stable/index.html>`_ 托管了我们的文档
 and `python.org <https://www.python.org/>`_ for making our downloads available
 on PyPi.
 
-We also thank our continuous integration providers,
-`Travis CI <https://travis-ci.org/>`_ and `AppVeyor <https://ci.appveyor.com>`_ for
-unit testing, and `Codecov <https://codecov.io>`_ and `Coveralls <https://coveralls.io>`_ for
-code coverage.
+我们还要感谢我们的持续整合提供商,`Travis CI <https://travis-ci.org/>`_ 和 `AppVeyor <https://ci.appveyor.com>`_ 为单元测试，
+以及 `Codecov <https://codecov.io>`_ 和 `Coveralls <https://coveralls.io>`_ 为代码覆盖率
 
-Brand Marks
+商标品牌
 -----------
 
-Please make use of the statsmodels logos when preparing demonstrations involving
-statsmodels code.
+在做关于 statsmodels 代码的演示时，请使用 statsmodels 的 loge
 
-Color
+彩色
 ^^^^^
 
 +----------------+---------------------+
@@ -95,7 +69,7 @@ Color
 | Logo Only      | |color-notext|      |
 +----------------+---------------------+
 
-Monochrome (Dark)
+单色 (Dark)
 ^^^^^^^^^^^^^^^^^
 
 +----------------+---------------------+
@@ -106,13 +80,12 @@ Monochrome (Dark)
 | Logo Only      | |dark-notext|       |
 +----------------+---------------------+
 
-Monochrome (Light)
+单色 (Light)
 ^^^^^^^^^^^^^^^^^^
 
 .. note::
 
-   The light brand marks are light grey on transparent, and so are difficult to see on this
-   page. They are intended for use on a dark background.
+   浅色商标标记在透明上为浅灰色，因此在此页面上很难看到。它们想要使用在深色背景上。
 
 
 +----------------+---------------------+
