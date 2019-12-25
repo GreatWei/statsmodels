@@ -86,7 +86,7 @@ Tweedie分布具有 :math:`p=0,1,2` 的特殊情况
 * :math:`Y` 和 :math:`y` 编码为 ``endog``, 要对变量 math:`Y` 建模
 * :math:`x` 编码为 ``exog``, 协变量别名解释变量
 * :math:`\beta` 编码为 ``params``, 要估算的参数
-* :math:`\mu` 编码为 ``mu``, (基于 :math:`x`) math:`Y`的期望。
+* :math:`\mu` 编码为 ``mu``, (基于 :math:`x` ) math:`Y` 的期望。
 * :math:`g` 编码为 ``link`` 传递给 ``class Family``
 * :math:`\phi` 编码为 ``scale``, EDM 的参数
 * :math:`w` 目前不支持 (i.e. :math:`w=1`)的情况, 未来有可能支持

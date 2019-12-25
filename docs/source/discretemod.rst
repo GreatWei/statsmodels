@@ -119,7 +119,7 @@
 
 
 :class:`DiscreteModel` 是所有离散回归模型的超类。估算结果作为 :class:`DiscreteResults` 子类之一的实例返回。
-每个类别模型，如 binary, count 和 multinomial）都有自己的中间模型类和结果类。通过定义 :class:`DiscreteModel` 
+每个类别模型，如 binary, count 和 multinomial 都有自己的中间模型类和结果类。通过定义 :class:`DiscreteModel` 
 和 :class:`DiscreteResults` 类以便于实现这些中间类的方法和属性。
 
 .. currentmodule:: statsmodels.discrete.discrete_model

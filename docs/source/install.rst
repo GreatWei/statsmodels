@@ -8,17 +8,17 @@
 安装 statsmodels 的最简单方法是将其安装 `Anaconda <https://docs.continuum.io/anaconda/>`_
 发行版一同安装, 后者是用于数据分析和科学计算的跨平台发行版。对于大多数用户，这是推荐的安装方法。
 
-Instructions for installing from PyPI, source or a development version are also provided.
+还提供了从 PyPI ，源代码或开发版本进行安装的说明。
 
 
 Python 支持
 --------------
 
-statsmodels 支持 Python 3.5, 3.6 and 3.7.
+statsmodels 支持 Python 3.5, 3.6 和 3.7.
 
 Anaconda
 --------
-statsmodels i可通过
+statsmodels 可通过
 `Anaconda <https://www.continuum.io/downloads>`__ 提供的 conda 来获得，可以使用一下方法安装最新版本：
 
 .. code-block:: bash

@@ -4,7 +4,7 @@
 
 
 列联表
-==================
+======
 
 statsmodels 支持多种分析列联表的方法，包括评估独立性，对称性，同质性的方法以及处理来自分层总体的表集合的方法。
 
@@ -35,7 +35,7 @@ statsmodels 支持多种分析列联表的方法，包括评估独立性，对�
     tab = pd.crosstab(df['Treatment'], df['Improved'])
     tab = tab.loc[:, ["None", "Some", "Marked"]]
     table = sm.stats.Table(tab)
-
+    
 另外，我们可以传递原始数据，并让 Table 类为我们构造单元格计数数组：
 
 .. ipython:: python
@@ -45,7 +45,7 @@ statsmodels 支持多种分析列联表的方法，包括评估独立性，对�
 
 
 Independence（独立性）
-------------
+---------------------
 
 **Independence（独立性）** 是行和列因子独立发生的属性。 **Association（联合）** 是缺乏独立性。 
 如果联合分布是独立的，则可以将其写为行和列边际分布的外积：

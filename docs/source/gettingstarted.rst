@@ -20,7 +20,7 @@
 ``R`` "data.frame".  ``pandas.read_csv`` 函数可用于以逗号作为分隔符的数据文件转换为 ``DataFrame`` 对象
 
 `patsy <https://github.com/pydata/patsy>`_ 是一个 Python 库，用于描述统计模型和构建 `Design Matrices
-<https://en.wikipedia.org/wiki/Design_matrix>`_ 使用 ``R``-风格的公式.
+<https://en.wikipedia.org/wiki/Design_matrix>`_ 使用 ``R``-Style 的公式.
 
 .. 注意::
 
@@ -79,7 +79,7 @@ OLS 模型系数估计值照常计算：
 其中 :math:`y`  是人均彩票投注的 :math:`N \times 1` 列的数据 (*Lottery*)。 :math:`X` 是 :math:`N \times 7` 并带有截距，
 *Literacy* 和 *Wealth* 变量, 以及 4 个区域二元变量。
 
- ``patsy`` 模块提供了使用类似 ``R``-公式来准备设计矩阵的便捷功能. 你可以在此处 `here <https://patsy.readthedocs.io/en/latest/>`_ 找到更多信息。
+ ``patsy`` 模块提供了使用类似 ``R``-Style 公式来准备设计矩阵的便捷功能. 你可以在 `此处 <https://patsy.readthedocs.io/en/latest/>`_ 找到更多信息。
 
 我们使用 ``patsy`` 的 ``dmatrices`` 函数来创建设计矩阵:
 
@@ -98,9 +98,9 @@ OLS 模型系数估计值照常计算：
 
 * 将分类变量 *Region* 拆分为一组指标变量.
 * 在外生回归矩阵中增加一个常数项
-* 返回 ``pandas`` DataFrame 而不是简单的numpy数组。因为 DataFrame 可以携带元数据 (如： 变量名) ，statsmodels 在展示结果就非常的有用。
+* 返回 ``pandas`` DataFrame 而不是简单的 numpy 数组。因为 DataFrame 可以携带元数据 (如： 变量名) ，statsmodels 在展示结果就非常的有用。
 
-上述行为也可以更改，请参阅 `patsy doc pages
+上述行为也可以更改，请参阅 `patsy 文档页面
 <https://patsy.readthedocs.io/en/latest/>`_.
 
 模型拟合和 summary 汇总
@@ -130,7 +130,7 @@ OLS 模型系数估计值照常计算：
 
 输入 ``dir(res)`` 可以查看属性的完整列表。
 
-更多信息和示例，请参阅 `Regression doc page <regression.html>`_ 页面
+更多信息和示例，请参阅 `Regression 文档页面 <regression.html>`_ 
 
 诊断和规范检验
 -----------------------------------

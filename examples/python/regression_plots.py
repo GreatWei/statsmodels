@@ -7,7 +7,7 @@
 # flake8: noqa
 # DO NOT EDIT
 
-# # Regression Plots
+# # 回归图
 
 from statsmodels.compat import lzip
 import numpy as np
@@ -15,13 +15,11 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from statsmodels.formula.api import ols
 
-# ## Duncan's Prestige Dataset
+# ## Duncan 的威望数据集
 
-# ### Load the Data
+# ### 加载数据
 
-# We can use a utility function to load any R dataset available from the
-# great <a href="https://vincentarelbundock.github.io/Rdatasets/">Rdatasets
-# package</a>.
+# 我们可以使用一个实用函数来加载任何可用的R数据集 <a href="https://vincentarelbundock.github.io/Rdatasets/">R 数据集包</a>.
 
 prestige = sm.datasets.get_rdataset("Duncan", "carData", cache=True).data
 
@@ -31,13 +29,11 @@ prestige_model = ols("prestige ~ income + education", data=prestige).fit()
 
 print(prestige_model.summary())
 
-# ### Influence plots
+# ### 影响图
 
-# Influence plots show the (externally) studentized residuals vs. the
-# leverage of each observation as measured by the hat matrix.
+# 影响图显示了（外部）学生化残差与每个观察结果（通过帽子矩阵测得）的比率。
 #
-# Externally studentized residuals are residuals that are scaled by their
-# standard deviation where
+# 外部学生化残差是按其标准偏差缩放的残差，其中
 #
 # $$var(\hat{\epsilon}_i)=\hat{\sigma}^2_i(1-h_{ii})$$
 #
@@ -46,50 +42,33 @@ print(prestige_model.summary())
 # $$\hat{\sigma}^2_i=\frac{1}{n - p - 1 \;\;}\sum_{j}^{n}\;\;\;\forall
 # \;\;\; j \neq i$$
 #
-# $n$ is the number of observations and $p$ is the number of regressors.
-# $h_{ii}$ is the $i$-th diagonal element of the hat matrix
+# $n$ 是观测数 $p$ 是回归数.
+# $h_{ii}$ 是帽子矩阵的第 $i$-th 对角元素
 #
 # $$H=X(X^{\;\prime}X)^{-1}X^{\;\prime}$$
 #
-# The influence of each point can be visualized by the criterion keyword
-# argument. Options are Cook's distance and DFFITS, two measures of
-# influence.
+# 每个点的影响可以通过标准关键字参数来可视化。 选项包括 Cook 距离和 DFFITS，这是两种影响力的度量。
 
 fig, ax = plt.subplots(figsize=(12, 8))
 fig = sm.graphics.influence_plot(prestige_model, ax=ax, criterion="cooks")
 
-# As you can see there are a few worrisome observations. Both contractor
-# and reporter have low leverage but a large residual. <br />
-# RR.engineer has small residual and large leverage. Conductor and
-# minister have both high leverage and large residuals, and, <br />
-# therefore, large influence.
+# 如您所见，有一些令人担忧的观察。 承包商和记者的杠杆率均较低，但残差较大。 <br /> RR.工程师具有
+# 较小的残差和较大的杠杆率。指挥官和牧师既有很高的杠杆率又有很大的残差，<br /> 因此影响很大 
 
-# ### Partial Regression Plots
+# ### 偏回归图
 
-# Since we are doing multivariate regressions, we cannot just look at
-# individual bivariate plots to discern relationships. <br />
-# Instead, we want to look at the relationship of the dependent variable
-# and independent variables conditional on the other <br />
-# independent variables. We can do this through using partial regression
-# plots, otherwise known as added variable plots. <br />
+# 由于我们正在进行多元回归，因此我们不能只看单个二元图来识别关系。 <br />相反，我们希望查看以其他自变量
+# 为条件的因变量和自变量之间的关系，我们可以通过使用偏回归图（也称为添加变量图）来实现 <br />
 #
-# In a partial regression plot, to discern the relationship between the
-# response variable and the $k$-th variable, we compute <br />
-# the residuals by regressing the response variable versus the independent
-# variables excluding $X_k$. We can denote this by <br />
-# $X_{\sim k}$. We then compute the residuals by regressing $X_k$ on
-# $X_{\sim k}$. The partial regression plot is the plot <br />
-# of the former versus the latter residuals. <br />
+# 在偏回归图中,为了辨别响应变量和第 $k$-th 变量之间的关系, 我们 <br /> 通过对响应变量与自变量（不包括 $X_k$）
+# 进行回归来计算残差。我们可以用 <br /> $X_{\sim k}$ 来表示. 然后，我们通过对 $X_{\sim k}$ 回归 $X_k$ 来计算
+# 残差，偏回归图是前者对后者残差的图 <br />
 #
-# The notable points of this plot are that the fitted line has slope
-# $\beta_k$ and intercept zero. The residuals of this plot <br />
-# are the same as those of the least squares fit of the original model
-# with full $X$. You can discern the effects of the <br />
-# individual data values on the estimation of a coefficient easily. If
-# obs_labels is True, then these points are annotated <br />
-# with their observation label. You can also see the violation of
-# underlying assumptions such as homoskedasticity and <br />
-# linearity.
+# 该图的显着点是拟合线的斜率为 $\beta_k$ ，截距为零。 此图的残差<br />与具有完整 $X$ 的原始模型的最小二乘拟合的残差相同。
+# 您可以轻松地辨别<br />各个数据值对系数估计的影响。 如果 obs_labels 为 True，则这些点将使用其观察标签进行注释。 您也可以
+# 看到违反基本假设，例如同方差 和<br /> 线性
+
+
 
 fig, ax = plt.subplots(figsize=(12, 8))
 fig = sm.graphics.plot_partregress(
@@ -99,84 +78,60 @@ fix, ax = plt.subplots(figsize=(12, 14))
 fig = sm.graphics.plot_partregress(
     "prestige", "income", ["education"], data=prestige, ax=ax)
 
-# As you can see the partial regression plot confirms the influence of
-# conductor, minister, and RR.engineer on the partial relationship between
-# income and prestige. The cases greatly decrease the effect of income on
-# prestige. Dropping these cases confirms this.
+# 如您所见，偏回归图确认了指挥管、牧师和 RR.工程师对收入和声望之间的局部关系的影响。
+# 这些情况大大降低了收入对声望的影响。 剔除这些情况也可以确认这一点。
 
 subset = ~prestige.index.isin(["conductor", "RR.engineer", "minister"])
 prestige_model2 = ols(
     "prestige ~ income + education", data=prestige, subset=subset).fit()
 print(prestige_model2.summary())
 
-# For a quick check of all the regressors, you can use
-# plot_partregress_grid. These plots will not label the <br />
-# points, but you can use them to identify problems and then use
-# plot_partregress to get more information.
+# 要快速检查所有回归变量，可以使用 plot_partregress_grid。这些图不会标记<br />点，
+# 但是您可以使用它们来识别问题，然后使用 plot_partregress 获取更多信息
 
 fig = plt.figure(figsize=(12, 8))
 fig = sm.graphics.plot_partregress_grid(prestige_model, fig=fig)
 
 # ### Component-Component plus Residual (CCPR) Plots
 
-# The CCPR plot provides a way to judge the effect of one regressor on the
-# <br />
-# response variable by taking into account the effects of the other  <br
-# />
-# independent variables. The partial residuals plot is defined as  <br />
-# $\text{Residuals} + B_iX_i \text{ }\text{ }$   versus $X_i$. The
-# component adds $B_iX_i$ versus  <br />
-# $X_i$ to show where the fitted line would lie. Care should be taken if
-# $X_i$  <br />
-# is highly correlated with any of the other independent variables. If
-# this  <br />
-# is the case, the variance evident in the plot will be an underestimate
-# of  <br />
-# the true variance.
+# 
+# CCPR 图提供了一种通过考虑其他<br />自变量的影响来判断一个回归变量对<br />响应变量的影响的方法。 偏残差图可以被定义为  <br />
+# $\text{Residuals} + B_iX_i \text{ }\text{ }$ 与 $ X_i $。 该组件将$ B_iX_i $ 与 <br /> $ X_i $ 相加以显示拟合线的位置。 
+# 如果 $ X_i $ <br />与任何其他自变量高度相关，则应格外小心。 如果是这种情况，则图中显示的方差将低估真实方差。
+
 
 fig, ax = plt.subplots(figsize=(12, 8))
 fig = sm.graphics.plot_ccpr(prestige_model, "education", ax=ax)
 
-# As you can see the relationship between the variation in prestige
-# explained by education conditional on income seems to be linear, though
-# you can see there are some observations that are exerting considerable
-# influence on the relationship. We can quickly look at more than one
-# variable by using plot_ccpr_grid.
+# 如您所见，受收入限制的教育所解释的声望变化之间的关系是线性的，尽管您可以看到一些观察结果对该关系产生了重大影响。 我们可以使用
+# plot_ccpr_grid 快速查看多个变量。
 
 fig = plt.figure(figsize=(12, 8))
 fig = sm.graphics.plot_ccpr_grid(prestige_model, fig=fig)
 
-# ### Regression Plots
+# ### 回归图
 
-# The plot_regress_exog function is a convenience function that gives a
-# 2x2 plot containing the dependent variable and fitted values with
-# confidence intervals vs. the independent variable chosen, the residuals of
-# the model vs. the chosen independent variable, a partial regression plot,
-# and a CCPR plot. This function can be used for quickly checking modeling
-# assumptions with respect to a single regressor.
+# plot_regress_exog 函数是一个便捷的函数，它提供一个 2x2 图，其中包含因变量和具有置信区间的拟合值，所选自变量的模型残差，所选自变量
+# 的偏回归图和 CCPR 图 。 此函数可用于快速检查有关单个回归变量的建模假设。
 
 fig = plt.figure(figsize=(12, 8))
 fig = sm.graphics.plot_regress_exog(prestige_model, "education", fig=fig)
 
-# ### Fit Plot
+# ### 拟合图
 
-# The plot_fit function plots the fitted values versus a chosen
-# independent variable. It includes prediction confidence intervals and
-# optionally plots the true dependent variable.
+# plot_fit 函数绘制拟合值与所选自变量的关系。 它包括预测置信区间，并可以选择绘制真实因变量。
 
 fig, ax = plt.subplots(figsize=(12, 8))
 fig = sm.graphics.plot_fit(prestige_model, "education", ax=ax)
 
-# ## Statewide Crime 2009 Dataset
+# ## 2009年全州犯罪数据集
 
-# Compare the following to http://www.ats.ucla.edu/stat/stata/webbooks/reg
+# 与以下内容相比 http://www.ats.ucla.edu/stat/stata/webbooks/reg
 # /chapter4/statareg_self_assessment_answers4.htm
 #
-# Though the data here is not the same as in that example. You could run
-# that example by uncommenting the necessary cells below.
+# 尽管此处的数据与该示例中的数据不同。 您可以通过取消注释以下必要的单元格来运行该示例。
 
-#dta =
-# pd.read_csv("http://www.stat.ufl.edu/~aa/social/csv_files/statewide-
+#dta = pd.read_csv("http://www.stat.ufl.edu/~aa/social/csv_files/statewide-
 # crime-2.csv")
 #dta = dta.set_index("State", inplace=True).dropna()
 #dta.rename(columns={"VR" : "crime",
@@ -197,7 +152,7 @@ crime_model = ols(
     "murder ~ urban + poverty + hs_grad + single", data=dta).fit()
 print(crime_model.summary())
 
-# ### Partial Regression Plots
+# ### 偏回归图
 
 fig = plt.figure(figsize=(12, 8))
 fig = sm.graphics.plot_partregress_grid(crime_model, fig=fig)
@@ -206,24 +161,21 @@ fig, ax = plt.subplots(figsize=(12, 8))
 fig = sm.graphics.plot_partregress(
     "murder", "hs_grad", ["urban", "poverty", "single"], ax=ax, data=dta)
 
-# ### Leverage-Resid<sup>2</sup> Plot
+# ### 杠杆残差<sup>2</sup> 图
 
-# Closely related to the influence_plot is the leverage-resid<sup>2</sup>
-# plot.
+# 与 influence_plot 紧密相关的杠杆残差<sup>2</sup>图
 
 fig, ax = plt.subplots(figsize=(8, 6))
 fig = sm.graphics.plot_leverage_resid2(crime_model, ax=ax)
 
-# ### Influence Plot
+# ### 影响图
 
 fig, ax = plt.subplots(figsize=(8, 6))
 fig = sm.graphics.influence_plot(crime_model, ax=ax)
 
-# ### Using robust regression to correct for outliers.
+# ### 使用稳健的回归校正异常值。
 
-# Part of the problem here in recreating the Stata results is that
-# M-estimators are not robust to leverage points. MM-estimators should do
-# better with this examples.
+# 在重新创建 Stata 结果时，部分问题在于 M 估计量不能稳健的处理杠杆点。 MM 估计器在这种情况的效果更好。
 
 from statsmodels.formula.api import rlm
 
@@ -237,9 +189,7 @@ print(rob_crime_model.summary())
 # data=dta, M=sm.robust.norms.TukeyBiweight()).fit(conv="weights")
 #print(rob_crime_model.summary())
 
-# There is not yet an influence diagnostics method as part of RLM, but we
-# can recreate them. (This depends on the status of [issue
-# #888](https://github.com/statsmodels/statsmodels/issues/808))
+# 作为RLM的一部分，还没有影响诊断方法，但是我们可以重新构建。 (这取决于 [issue888](https://github.com/statsmodels/statsmodels/issues/808) 的状态)
 
 weights = rob_crime_model.weights
 idx = weights > 0

@@ -47,10 +47,9 @@ Bugs 反馈
 我们还要感谢托管服务提供商, `github
 <https://github.com/>`_ 提供了公共代码存储库, `github.io
 <https://www.statsmodels.org/stable/index.html>`_ 托管了我们的文档
-and `python.org <https://www.python.org/>`_ for making our downloads available
-on PyPi.
+和 `python.org <https://www.python.org/>`_ 让我们的项目可以通过 PyPi 来下载
 
-我们还要感谢我们的持续整合提供商,`Travis CI <https://travis-ci.org/>`_ 和 `AppVeyor <https://ci.appveyor.com>`_ 为单元测试，
+我们还要感谢我们的持续整合提供商, `Travis CI <https://travis-ci.org/>`_ 和 `AppVeyor <https://ci.appveyor.com>`_ 为单元测试，
 以及 `Codecov <https://codecov.io>`_ 和 `Coveralls <https://coveralls.io>`_ 为代码覆盖率
 
 商标品牌

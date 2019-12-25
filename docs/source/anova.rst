@@ -3,7 +3,7 @@
 .. _anova:
 
 方差分析
-=====
+========
 
 方差分析模型包含线性最小二乘模型的方差线性的方差分析, 和 AnovaRM 用于重复测量的方差分析, 
 以及用于平衡数据的方差分析
@@ -33,7 +33,11 @@
 
 模块参考
 ----------------
+* statsmodels.stats.anova
 
+    * anova_lm
+    * AnovaRM
+    
 .. module:: statsmodels.stats.anova
    :synopsis: Analysis of Variance
 

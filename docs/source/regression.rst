@@ -195,7 +195,7 @@ GLS 是除 RecursiveLS、RollingWLS 和 RollingOLS 之外的其他回归类的�
 和一些其他方法。
 
 
-*statsmodels.regression.linear_model
+* statsmodels.regression.linear_model
 
    * RegressionResults
    * OLSResults

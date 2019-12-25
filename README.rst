@@ -1,183 +1,127 @@
-|Travis Build Status| |Azure CI Build Status| |Appveyor Build Status| |Coveralls Coverage|
+为什么翻译
+=================
+本人会计出身，转行数据分析（更多是用excel、sql、spss等工具），30岁开始入坑python，在学习statsmodels包的过程中，在知乎、百度、CSDN和github上均没有找到statsmodels的中文文档，一开始以为 ApacheCN 开源组织（号称一群有想法，爱装逼，爱斗图，有活力，爱搞事，爱吃辣条的朋友）已经翻译了该包的文档，最后发现他们只是翻译该文档的目录，为了更好地入坑，我只好用我那拙劣的英语、再加上谷歌翻译，苦逼的翻译2周，也仅仅是把docs文件夹下的文件翻译完（未校验），水平有限，请大家多担待。翻译这个活没有什么技术可言，但真的很苦逼。所以真的非常的感谢 ApacheCN 开源组织在我学习的过程中贡献的各种中文文档，非常感谢！
 
-About statsmodels
+关于统计模型
 =================
 
-statsmodels is a Python package that provides a complement to scipy for
-statistical computations including descriptive statistics and estimation
-and inference for statistical models.
+statsmodels是一个Python软件包，为scipy提供了补充，以进行统计计算，包括描述性统计以及统计模型的估计和推断。
+
+statsmodels主要包括如下子模块：
+
+回归模型：线性回归，广义线性模型，稳健的线性模型，线性混合效应模型等等。
+
+方差分析（ANOVA）。
+
+时间序列分析：AR，ARMA，ARIMA，VAR和其它模型。
+
+非参数方法： 核密度估计，核回归。
+
+统计模型结果可视化。
+
+比较：statsmodels更关注统计推断，提供不确定估计和参数p-value。相反的，scikit-learn注重预测。
 
 
-Documentation
+主要特点
 =============
 
-The documentation for the latest release is at
+* 线性回归模型：
 
-https://www.statsmodels.org/stable/
+  - 普通最小二乘法
+  - 广义最小二乘法
+  - 加权最小二乘法
+  - 具有自回归误差的最小二乘
+  - 分位数回归
+  - 递归最小二乘法
 
-The documentation for the development version is at
+* 具有混合效应和方差成分的混合线性模型
+* GLM：支持所有单参数指数族分布的广义线性模型
+* 用于二项式和泊松的贝叶斯混合GLM
+* GEE：单向聚类或纵向数据的广义估计方程
+* 离散模型:
 
-https://www.statsmodels.org/dev/
+  - Logit 和 Probit
+  - 多项 logit (MNLogit)
+  - 泊松和广义泊松回归
+  - 负二项式回归
+  - 零膨胀计数模型
+  
+* RLM: 鲁棒的线性模型，支持多个 M 估计器。
+* 时间序列分析：时间序列分析模型
 
-Recent improvements are highlighted in the release notes
+  - 完整的StateSpace建模框架
+  
+    - 季节性ARIMA和ARIMAX模型
+    - VARMA和VARMAX模型
+    - 动态因子模型
+    - 未观测到的组件模型
 
-https://www.statsmodels.org/stable/release/version0.9.html
+  - 马尔可夫切换模型（MSAR），也称为隐马尔可夫模型（HMM）
+  - 单变量时间序列分析：AR，ARIMA
+  - 矢量自回归模型，VAR和结构VAR
+  - 矢量误差修正模型，VECM
+  - 指数平滑，Holt-Winters
+  - 时间序列的假设检验：单位根，协整和其他
+  - 用于时间序列分析的描述性统计数据和过程模型
+  
+* 生存分析:
 
-Backups of documentation are available at https://statsmodels.github.io/stable/
-and https://statsmodels.github.io/dev/.
+  - 比例风险回归（Cox模型）
+  - 生存者函数估计（Kaplan-Meier）
+  - 累积发生率函数估计
 
+* 多变量:
 
-Main Features
-=============
-
-* Linear regression models:
-
-  - Ordinary least squares
-  - Generalized least squares
-  - Weighted least squares
-  - Least squares with autoregressive errors
-  - Quantile regression
-  - Recursive least squares
-
-* Mixed Linear Model with mixed effects and variance components
-* GLM: Generalized linear models with support for all of the one-parameter
-  exponential family distributions
-* Bayesian Mixed GLM for Binomial and Poisson
-* GEE: Generalized Estimating Equations for one-way clustered or longitudinal data
-* Discrete models:
-
-  - Logit and Probit
-  - Multinomial logit (MNLogit)
-  - Poisson and Generalized Poisson regression
-  - Negative Binomial regression
-  - Zero-Inflated Count models
-
-* RLM: Robust linear models with support for several M-estimators.
-* Time Series Analysis: models for time series analysis
-
-  - Complete StateSpace modeling framework
-
-    - Seasonal ARIMA and ARIMAX models
-    - VARMA and VARMAX models
-    - Dynamic Factor models
-    - Unobserved Component models
-
-  - Markov switching models (MSAR), also known as Hidden Markov Models (HMM)
-  - Univariate time series analysis: AR, ARIMA
-  - Vector autoregressive models, VAR and structural VAR
-  - Vector error correction modle, VECM
-  - exponential smoothing, Holt-Winters
-  - Hypothesis tests for time series: unit root, cointegration and others
-  - Descriptive statistics and process models for time series analysis
-
-* Survival analysis:
-
-  - Proportional hazards regression (Cox models)
-  - Survivor function estimation (Kaplan-Meier)
-  - Cumulative incidence function estimation
-
-* Multivariate:
-
-  - Principal Component Analysis with missing data
-  - Factor Analysis with rotation
+  - 缺失数据的主成分分析
+  - 旋转因子分析
   - MANOVA
-  - Canonical Correlation
+  - 典型相关
 
-* Nonparametric statistics: Univariate and multivariate kernel density estimators
-* Datasets: Datasets used for examples and in testing
-* Statistics: a wide range of statistical tests
+* 非参数统计：单变量和多变量核密度估计
+* 数据集：用于示例和测试的数据集
+* 统计：广泛的统计检验
 
-  - diagnostics and specification tests
-  - goodness-of-fit and normality tests
-  - functions for multiple testing
-  - various additional statistical tests
+  - 诊断和规格检验
+  - 拟合优度和正态性检验
+  - 多元测试函数
+  - 各种其他统计检验
+  
+* 使用MICE进行插补，秩序统计回归和高斯插补
+* 调解分析
+* 图形包括用于数据和模型结果的可视化分析的绘图功能
 
-* Imputation with MICE, regression on order statistic and Gaussian imputation
-* Mediation analysis
-* Graphics includes plot functions for visual analysis of data and model results
 
-* I/O
+* 输入/输出
 
-  - Tools for reading Stata .dta files, but pandas has a more recent version
-  - Table output to ascii, latex, and html
+  - 用于读取Stata .dta文件的工具，但pandas具有较新的版本
+  -  表输出到ascii，latex和html
+  
+* 其他模型
 
-* Miscellaneous models
-* Sandbox: statsmodels contains a sandbox folder with code in various stages of
-  development and testing which is not considered "production ready".  This covers
-  among others
+* Sandbox：statsmodels包含一个 sandbox 文件夹，其中包含处于开发和测试各个阶段的代码，
+  因此不被视为“生产就绪”。其中包括：
 
-  - Generalized method of moments (GMM) estimators
-  - Kernel regression
-  - Various extensions to scipy.stats.distributions
-  - Panel data models
-  - Information theoretic measures
+  - 广义矩法（GMM）估计器
+  - 核回归
+  - scipy.stats.distributions的各种扩展
+  - 面板数据模型
+  - 信息理论测度
 
-How to get it
+如何获得
 =============
-The master branch on GitHub is the most up to date code
+GitHub上的master分支是最新的代码
 
 https://www.github.com/statsmodels/statsmodels
 
-Source download of release tags are available on GitHub
+发行标签的源代码下载可在GitHub上获得
 
 https://github.com/statsmodels/statsmodels/tags
 
-Binaries and source distributions are available from PyPi
+二进制文件和源代码发行版可从PyPi获得
 
 https://pypi.org/project/statsmodels/
 
-Binaries can be installed in Anaconda
+二进制文件可以安装在Anaconda中
 
-conda install statsmodels
+conda install statsmodels 
 
-
-Installing from sources
-=======================
-
-See INSTALL.txt for requirements or see the documentation
-
-https://statsmodels.github.io/dev/install.html
-
-Contributing
-============
-Contributions in any form are welcome, including:
-
-* Documentation improvements
-* Additional tests
-* New features to existing models
-* New models
-
-https://statsmodels.github.io/dev/test_notes.html
-
-for instructions on installing statsmodels in *editable* mode.
-
-License
-=======
-
-Modified BSD (3-clause)
-
-Discussion and Development
-==========================
-
-Discussions take place on the mailing list
-
-https://groups.google.com/group/pystatsmodels
-
-and in the issue tracker. We are very interested in feedback
-about usability and suggestions for improvements.
-
-Bug Reports
-===========
-
-Bug reports can be submitted to the issue tracker at
-
-https://github.com/statsmodels/statsmodels/issues
-
-.. |Travis Build Status| image:: https://travis-ci.org/statsmodels/statsmodels.svg?branch=master
-   :target: https://travis-ci.org/statsmodels/statsmodels
-.. |Azure CI Build Status| image:: https://dev.azure.com/statsmodels/statsmodels-testing/_apis/build/status/statsmodels.statsmodels?branch=master
-   :target: https://dev.azure.com/statsmodels/statsmodels-testing/_build/latest?definitionId=1&branch=master
-.. |Appveyor Build Status| image:: https://ci.appveyor.com/api/projects/status/gx18sd2wc63mfcuc/branch/master?svg=true
-   :target: https://ci.appveyor.com/project/josef-pkt/statsmodels/branch/master
-.. |Coveralls Coverage| image:: https://coveralls.io/repos/github/statsmodels/statsmodels/badge.svg?branch=master
-   :target: https://coveralls.io/github/statsmodels/statsmodels?branch=master

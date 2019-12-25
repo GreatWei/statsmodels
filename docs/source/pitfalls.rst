@@ -1,8 +1,7 @@
-Pitfalls（陷阱）
+Pitfalls 陷阱
 ========
 
-本页列出了使用 statsmodels 时可能出现的问题。这些可能是数据相关或统计问题，软件设计，
- "non-standard" 使用模型或出现极端情况的结果。
+本页列出了使用 statsmodels 时可能出现的问题。这些可能是数据相关或统计问题，软件设计， "non-standard" 是使用模型或出现极端情况的结果。
 
 statsmodels 提供了一些警告和帮助程序功能来进行诊断检查，（比如，有关线性回归中错误指定检查的示例， 请参阅 `blog article
 <http://jpktd.blogspot.ca/2012/01/anscombe-and-diagnostic-statistics.html>`_ 虽然涵盖范围并不全面，但是随着时间的推移会增加更多的警告和诊断功能。
