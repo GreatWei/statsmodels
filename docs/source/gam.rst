@@ -22,14 +22,14 @@ https://archive.ics.uci.edu/ml/datasets/automobile
     import statsmodels.api as sm
     from statsmodels.gam.api import GLMGam, BSplines
 
-    # import data
+    # 导入数据
     from statsmodels.gam.tests.test_penalized import df_autos
 
     # create spline basis for weight and hp
     x_spline = df_autos[['weight', 'hp']]
     bs = BSplines(x_spline, df=[12, 10], degree=[3, 3])
 
-    # penalization weight
+    # 惩罚力度
     alpha = np.array([21833888.8, 6460.38479])
 
     gam_bs = GLMGam.from_formula('city_mpg ~ fuel + drive', data=df_autos,
@@ -37,7 +37,7 @@ https://archive.ics.uci.edu/ml/datasets/automobile
     res_bs = gam_bs.fit()
     print(res_bs.summary())
 
-    # plot smooth components
+    # 绘制平滑成分
     res_bs.plot_partial(0, cpr=True)
     res_bs.plot_partial(1, cpr=True)
 
@@ -48,10 +48,9 @@ https://archive.ics.uci.edu/ml/datasets/automobile
     res_bs = gam_bs.fit()
     print(res_bs.summary())
 
-    # Optimal penalization weights alpha can be obtaine through generalized
-    # cross-validation or k-fold cross-validation.
-    # The alpha above are from the unit tests against the R mgcv package.
-
+    # 最优惩罚权重可以通过广义交叉验证或 k-折交叉验证获得。
+    # 上面的 alpha 是针对 R 的 mgcv 包的单元检验。
+   
     gam_bs.select_penweight()[0]
     gam_bs.select_penweight_kfold()[0]
 
@@ -104,8 +103,8 @@ Currently there is verified support for two spline bases
    BSplines
    CyclicCubicSplines
 
-`statsmodels.gam.smooth_basis` includes additional splines and a (global)
-polynomial smoother basis but those have not been verified yet.
+`statsmodels.gam.smooth_basis` 包含附加样条和（全局）多项式平滑基，但尚未经过验证。
+
 
 
 

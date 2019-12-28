@@ -18,67 +18,42 @@ regressand             regressors
 ===================== ======================
 
 
-The usage is quite often domain and model specific; however, we have chosen
-to use `endog` and `exog` almost exclusively. A mnemonic hint to keep the two
-terms apart is that exogenous has an "x", as in x-variable, in it's name.
+用法通常是特定于域和模型的；但我们选择几乎全部使用 `endog` 和 `exog` 。 将这两个术语区分开的助记符是外生变量中有一个 "x" ，如 x 变量。
 
-`x` and `y` are one letter names that are sometimes used for temporary
-variables and are not informative in itself. To avoid one letter names we
-decided to use descriptive names and settled on ``endog`` and ``exog``.
-Since this has been criticized, this might change in future.
+`x` 和 `y` 是一个字母名称，有时用于临时变量，其本身并不提供信息。为了避免出现一个字母的名称，我们决定使用描述性名称，并以 ``endog'' 和 ``exog'' 为基础。
+由于这种命名方式受到批评，因此将来可能会改变。
 
-Background
+
+背景
 ----------
 
+有些术语的非正式定义的
 Some informal definitions of the terms are
 
-`endogenous`: caused by factors within the system
+`endogenous`: 由系统内的因素引起
 
-`exogenous`: caused by factors outside the system
+`exogenous`: 由系统外的因素引起
 
-*Endogenous variables designates variables in an economic/econometric model
-that are explained, or predicted, by that model.*
-http://stats.oecd.org/glossary/detail.asp?ID=794
+*内生变量表示经济/计量模型中的变量由该模型解释或预测的*http://stats.oecd.org/glossary/detail.asp?ID=794
 
-*Exogenous variables designates variables that appear in an
-economic/econometric model, but are not explained by that model (i.e. they are
-taken as given by the model).*  http://stats.oecd.org/glossary/detail.asp?ID=890
+*外生变量表示出现在经济/计量经济模型，但没有对此模型进行解释（即根据模型给出）。*  http://stats.oecd.org/glossary/detail.asp?ID=890
 
-In econometrics and statistics the terms are defined more formally, and
-different definitions of exogeneity (weak, strong, strict) are used depending
-on the model. The usage in statsmodels as variable names cannot always be
-interpreted in a formal sense, but tries to follow the same principle.
+在计量经济学和统计学中，术语被更正式地定义，并且根据模型使用不同的外生性定义（弱，强，严格）。在 statsmodels 中作为变量名的用法通常无法从形式上解释，而是要遵循相同的原理。
 
 
-In the simplest form, a model relates an observed variable, y, to another set
-of variables, x, in some linear or nonlinear form ::
+以最简单的形式，模型将观察到的变量 y 与另一个集合相关联变量 x，以某种线性或非线性形式 ::
 
    y = f(x, beta) + noise
    y = x * beta + noise
 
-However, to have a statistical model we need additional assumptions on the
-properties of the explanatory variables, x, and the noise. One standard
-assumption for many basic models is that x is not correlated with the noise.
-In a more general definition, x being exogenous means that we do not have to
-consider how the explanatory variables in x were generated, whether by design
-or by random draws from some underlying distribution, when we want to estimate
-the effect or impact that x has on y, or test a hypothesis about this effect.
+但是，要获得统计模型，我们需要对解释变量 x 和噪声进行附加假设。许多基本模型的一个标准假设是 x 与噪声不相关。在更笼统的定义中，x 是外生的，这意味着当我们要估计 x 的影响或作用时，
+无论是通过设计还是通过从某些基础分布中随机抽取，我们都不必考虑 x 的解释变量是如何生成的在 y 上，或检验关于此效果的假设。
 
-In other words, y is *endogenous* to our model, x is *exogenous* to our model
-for the estimation.
+换句话说，y 是模型的 *内生变量*，x 是模型估计的 *外生变量*。
 
-As an example, suppose you run an experiment and for the second session some
-subjects are not available anymore.
-Is the drop-out relevant for the conclusions you draw for the experiment?
-In other words, can we treat the drop-out decision as exogenous for our
-problem.
+举例来说，假设您进行了一项实验，并且在第二节课中某些主题不再可用。辍学与您为实验得出的结论有关吗？换句话说，我们是否可以将辍学决定视为问题的外生因素。
 
-It is up to the user to know (or to consult a text book to find out) what the
-underlying statistical assumptions for the models are. As an example, ``exog``
-in ``OLS`` can have lagged dependent variables if the error or noise term is
-independently distributed over time (or uncorrelated over time). However, if
-the error terms are autocorrelated, then OLS does not have good statistical
-properties (is inconsistent) and the correct model will be ARMAX.
-``statsmodels`` has functions for regression diagnostics to test whether some of
-the assumptions are justified or not.
+由用户决定（或查阅教科书以找出）模型的基础统计假设是什么。例如，如果误差或噪声项随时间独立分布（或随时间不相关），则 ``OLS`` 中的 ``exog`` 可以具有滞后因变量。
+但是，如果误差项是自相关的，则 OLS 不具有良好的统计属性（不一致），并且正确的模型将是 ARMAX。 ``statsmodels`` 通过回归诊断检验某些假设是否合理。
+
 

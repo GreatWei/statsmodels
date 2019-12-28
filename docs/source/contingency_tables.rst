@@ -35,7 +35,7 @@ statsmodels 支持多种分析列联表的方法，包括评估独立性，对�
     tab = pd.crosstab(df['Treatment'], df['Improved'])
     tab = tab.loc[:, ["None", "Some", "Marked"]]
     table = sm.stats.Table(tab)
-    
+
 另外，我们可以传递原始数据，并让 Table 类为我们构造单元格计数数组：
 
 .. ipython:: python
