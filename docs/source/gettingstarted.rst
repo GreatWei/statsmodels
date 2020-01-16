@@ -19,8 +19,7 @@
   ``pandas.DataFrame`` 函数提供带标签的 (可能是异构的) 数据, 类似于
 ``R`` "data.frame".  ``pandas.read_csv`` 函数可用于以逗号作为分隔符的数据文件转换为 ``DataFrame`` 对象
 
-`patsy <https://github.com/pydata/patsy>`_ 是一个 Python 库，用于描述统计模型和构建 `Design Matrices
-<https://en.wikipedia.org/wiki/Design_matrix>`_ 使用 ``R``-Style 的公式.
+`patsy <https://github.com/pydata/patsy>`_ 是一个 Python 库，用于描述统计模型和构建 `设计矩阵<https://en.wikipedia.org/wiki/Design_matrix>`_ 使用 ``R``-Style 的公式.
 
 .. 注意::
 

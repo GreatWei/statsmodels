@@ -19,7 +19,7 @@ statsmodels 支持 Python 3.5, 3.6 和 3.7.
 Anaconda
 --------
 statsmodels 可通过
-`Anaconda <https://www.continuum.io/downloads>`__ 提供的 conda 来获得，可以使用一下方法安装最新版本：
+`Anaconda <https://www.continuum.io/downloads>`__ 提供的 conda 来获得，可以使用以下方法安装最新版本：
 
 .. code-block:: bash
 
@@ -131,8 +131,7 @@ Mac
 
 * `cvxopt <https://cvxopt.org/>`__ 是某些模型的常规拟合所必​​需的。
 * `Matplotlib <https://matplotlib.org/>`__ >= 2.2 是绘制函数和运行许多示例所需的。
-*  如果安装了 `X-12-ARIMA <https://www.census.gov/srd/www/x13as/>`__ 或
-  `X-13ARIMA-SEATS <https://www.census.gov/srd/www/x13as/>`__ 则可以用于时间序列分析。
+*  如果安装了 `X-12-ARIMA <https://www.census.gov/srd/www/x13as/>`__ 或 `X-13ARIMA-SEATS <https://www.census.gov/srd/www/x13as/>`__ ， 可用于时间序列分析。
 * `pytest <https://docs.pytest.org/en/latest/>`__ 是运行测试套件所必需的
 *  如果要在本地构建文档或使用笔记本，需要 `IPython <https://ipython.org>`__ >= 5.0 。
 * `joblib <http://pythonhosted.org/joblib/>`__ >= 0.9 可用于加速某些模型的分布式估计。
